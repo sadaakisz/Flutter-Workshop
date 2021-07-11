@@ -16,12 +16,19 @@ class HorizonsApp extends StatelessWidget {
       scrollBehavior: ConstantScrollBehavior(),
       title: 'Horizons Weather',
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('Horizons'),
-          backgroundColor: Colors.teal[800],
-        ),
         body: CustomScrollView(
           slivers: <Widget>[
+            SliverAppBar(
+              title: Text('Horizons'),
+              backgroundColor: Colors.teal[800],
+              //pinned: true, //same behavior as AppBar
+              //floating: true, //shows as soon we scroll up
+              //floating: true,
+              //snap: true, //doesn't allow the appbar to show partially
+              pinned: true,
+              expandedHeight:
+                  200.0, //allow appbar to expand and collapse, useful for reachability
+            ),
             WeeklyForecastList(),
           ],
         ),
