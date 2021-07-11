@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
+  // How to use custom app bars with SliverAppBar and more!
   runApp(HorizonsApp());
 }
 
