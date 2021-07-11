@@ -9,26 +9,42 @@ class MyWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Icon(
-            Icons.account_circle,
-            size: 50.0,
-          ),
-        ),
-        Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
+        Row(
           children: [
-            Text(
-              'Flutter McFlutter',
-              style: Theme.of(context).textTheme.headline5,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Icon(
+                Icons.account_circle,
+                size: 50.0,
+              ),
             ),
-            Text('Experienced App Developer'),
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Flutter McFlutter',
+                  style: Theme.of(context).textTheme.headline5,
+                ),
+                Text('Experienced App Developer'),
+              ],
+            ),
           ],
         ),
+        SizedBox(height: 8.0),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text('123 Main Street'),
+            Text('(415) 555-0198'),
+          ],
+        ),
+        SizedBox(height: 16.0),
+        Row(),
       ],
     );
   }
