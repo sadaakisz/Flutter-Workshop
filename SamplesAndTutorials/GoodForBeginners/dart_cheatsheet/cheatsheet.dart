@@ -97,3 +97,30 @@ BigObject fillBigObject(BigObject obj) {
     ..aList.add(3.0)
     ..allDone();
 }
+
+    // Getters and setters: https://dart.dev/codelabs/dart-cheatsheet#getters-and-setters
+    // Example: https://dart.dev/codelabs/dart-cheatsheet#code-example-7
+
+// TODO: Error: Tried setting a negative price and received a _Type instead of an InvalidPriceException.
+class InvalidPriceException {}
+
+class ShoppingCart {
+  List<double> _prices = [];
+
+  double get total {
+    double pricesSum=0;
+    _prices.forEach((number)=>(pricesSum+=number));
+    return pricesSum;
+  }
+
+  set prices(List<double> values) {
+    _prices.clear();
+    values.forEach((number)=>{
+      if (number.isNegative) {
+        throw InvalidPriceException
+      }
+      else _prices.add(number)
+    });
+  }
+}
+
