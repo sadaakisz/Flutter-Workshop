@@ -76,3 +76,24 @@ class MyClass {
   String joinWithCommas(List<String> strings) => strings.join(',');
 }
 
+    // Cascades: https://dart.dev/codelabs/dart-cheatsheet#cascades
+    // Example: https://dart.dev/codelabs/dart-cheatsheet#code-example-6
+
+class BigObject {
+  int anInt = 0;
+  String aString = '';
+  List<double> aList = [];
+  bool _done = false;
+
+  void allDone() {
+    _done = true;
+  }
+}
+
+BigObject fillBigObject(BigObject obj) {
+  return obj
+    ..anInt=1
+    ..aString='String!'
+    ..aList.add(3.0)
+    ..allDone();
+}
