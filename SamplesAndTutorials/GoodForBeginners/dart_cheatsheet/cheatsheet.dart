@@ -214,3 +214,21 @@ class FirstTwoLetters {
         assert(word.length>=2) {
   }
 }
+
+    // Named constructors: https://dart.dev/codelabs/dart-cheatsheet#named-constructors
+    // Example: https://dart.dev/codelabs/dart-cheatsheet#code-example-13
+
+class Color {
+  int red;
+  int green;
+  int blue;
+
+  Color(this.red, this.green, this.blue);
+
+  Color.black()
+      : red=0,
+        green=0,
+        blue=0;
+
+}
+
