@@ -43,17 +43,31 @@ class WeeklyForecastList extends StatelessWidget {
             child: Row(
               children: <Widget>[
                 SizedBox(
-                  width: 200.0,
                   height: 200.0,
+                  width: 200.0,
                   child: Stack(
+                    fit: StackFit.expand,
                     children: [
-                      Image.network(
-                        dailyForecast.imageId,
-                        fit: BoxFit.cover,
+                      DecoratedBox(
+                        position: DecorationPosition.foreground,
+                        decoration: BoxDecoration(
+                          gradient: RadialGradient(
+                            colors: <Color>[
+                              Colors.grey[800]!,
+                              Colors.transparent,
+                            ],
+                          ),
+                        ),
+                        child: Image.network(
+                          dailyForecast.imageId,
+                          fit: BoxFit.cover,
+                        ),
                       ),
-                      Text(
-                        dailyForecast.getDate(currentDate.day).toString(),
-                        style: textTheme.headline4,
+                      Center(
+                        child: Text(
+                          dailyForecast.getDate(currentDate.day).toString(),
+                          style: textTheme.headline2,
+                        ),
                       ),
                     ],
                   ),
