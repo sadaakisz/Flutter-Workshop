@@ -124,3 +124,16 @@ class ShoppingCart {
   }
 }
 
+    // Optional positional parameters: https://dart.dev/codelabs/dart-cheatsheet#optional-positional-parameters
+    // Example: https://dart.dev/codelabs/dart-cheatsheet#code-example-8
+
+String joinWithCommas(int a, [int? b, int? c, int? d, int? e]) {
+  List<String> joined = [];
+  joined.add(a.toString());
+  if (b!=null) joined.add(b.toString());
+  if (c!=null) joined.add(c.toString());
+  if (d!=null) joined.add(d.toString());
+  if (e!=null) joined.add(e.toString());
+  return joined.join(',');
+}
+
