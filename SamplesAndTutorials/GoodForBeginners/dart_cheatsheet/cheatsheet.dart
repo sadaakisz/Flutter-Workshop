@@ -189,3 +189,14 @@ void tryFunction(VoidFunction untrustworthy, Logger logger) {
 
 }
 
+    // Using this in a constructor: https://dart.dev/codelabs/dart-cheatsheet#using-this-in-a-constructor
+    // Example: https://dart.dev/codelabs/dart-cheatsheet#code-example-11
+
+class MyClass {
+  final int anInt;
+  final String aString;
+  final double aDouble;
+
+  MyClass(this.anInt, this.aString, this.aDouble);
+}
+
