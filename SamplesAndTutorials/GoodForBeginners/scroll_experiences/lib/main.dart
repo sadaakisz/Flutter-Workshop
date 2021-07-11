@@ -38,19 +38,44 @@ class WeeklyForecastList extends StatelessWidget {
       itemBuilder: (BuildContext context, int index) {
         final DailyForecast dailyForecast = Server.getDailyForecastByID(index);
         return Card(
-          child: ListTile(
-            leading: Text(
-              dailyForecast.getDate(currentDate.day).toString(),
-              style: textTheme.headline4,
-            ),
-            title: Text(
-              dailyForecast.getWeekday(currentDate.weekday),
-              style: textTheme.headline5,
-            ),
-            subtitle: Text(dailyForecast.description),
-            trailing: Text(
-              '${dailyForecast.highTemp} | ${dailyForecast.lowTemp} F',
-              style: textTheme.subtitle2,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              children: <Widget>[
+                SizedBox(
+                  width: 200.0,
+                  height: 200.0,
+                  child: Stack(
+                    children: [
+                      Image.network(
+                        dailyForecast.imageId,
+                        fit: BoxFit.cover,
+                      ),
+                      Text(
+                        dailyForecast.getDate(currentDate.day).toString(),
+                        style: textTheme.headline4,
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(width: 8.0),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        dailyForecast.getWeekday(currentDate.weekday),
+                        style: textTheme.headline5,
+                      ),
+                      Text(dailyForecast.description),
+                    ],
+                  ),
+                ),
+                Text(
+                  '${dailyForecast.highTemp} | ${dailyForecast.lowTemp} F',
+                  style: textTheme.subtitle2,
+                ),
+              ],
             ),
           ),
         );
