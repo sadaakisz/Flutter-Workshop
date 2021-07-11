@@ -26,3 +26,12 @@ void updateSomeVars() {
   bar ??= 'a string';
 }
 
+// Conditional property access: https://dart.dev/codelabs/dart-cheatsheet#conditional-property-access
+// Example: https://dart.dev/codelabs/dart-cheatsheet#code-example-3
+
+// This method should return the uppercase version of `str`
+// or null if `str` is null.
+String? upperCaseIt(String? str) {
+  // Try conditionally accessing the `toUpperCase` method here.
+  return str?.toUpperCase();
+}
