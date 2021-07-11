@@ -25,9 +25,19 @@ class HorizonsApp extends StatelessWidget {
               //floating: true,
               //snap: true, //doesn't allow the appbar to show partially
               pinned: true,
+              stretch: true, //enables stretch functionality like reload
+              onStretchTrigger: () async {
+                print('Load new data!');
+                //await Server.requestNewData();
+              },
               expandedHeight:
                   200.0, //allow appbar to expand and collapse, useful for reachability
               flexibleSpace: FlexibleSpaceBar(
+                stretchModes: [
+                  StretchMode.zoomBackground,
+                  StretchMode.fadeTitle,
+                  StretchMode.blurBackground,
+                ],
                 collapseMode: CollapseMode.pin, //parallax is default
                 title: Text('Horizons'),
                 background: DecoratedBox(
