@@ -137,3 +137,22 @@ String joinWithCommas(int a, [int? b, int? c, int? d, int? e]) {
   return joined.join(',');
 }
 
+    // Optional named parameters: https://dart.dev/codelabs/dart-cheatsheet#optional-named-parameters
+    // Example: https://dart.dev/codelabs/dart-cheatsheet#code-example-9
+
+class MyDataObject {
+  final int anInt;
+  final String aString;
+  final double aDouble;
+
+  MyDataObject({
+    this.anInt = 1,
+    this.aString = 'Old!',
+    this.aDouble = 2.0,
+  });
+
+  MyDataObject copyWith({int newInt = 1, String newString='Old!' ,double newDouble = 2.0}){
+    return MyDataObject(anInt: newInt, aString: newString, aDouble: newDouble);
+  }
+}
+
