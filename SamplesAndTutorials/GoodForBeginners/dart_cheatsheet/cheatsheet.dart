@@ -6,3 +6,9 @@ String stringify(int x, int y) {
   return '${x} ${y}';
 }
 
+// Nullable variables: https://dart.dev/codelabs/dart-cheatsheet#nullable-variables
+// Example: https://dart.dev/codelabs/dart-cheatsheet#code-example-1
+
+String? name = 'Jane';
+String? address;
+
