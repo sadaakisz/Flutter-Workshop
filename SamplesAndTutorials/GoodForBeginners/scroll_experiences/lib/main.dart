@@ -20,7 +20,11 @@ class HorizonsApp extends StatelessWidget {
           title: Text('Horizons'),
           backgroundColor: Colors.teal[800],
         ),
-        body: WeeklyForecastList(),
+        body: CustomScrollView(
+          slivers: <Widget>[
+            WeeklyForecastList(),
+          ],
+        ),
       ),
     );
   }
@@ -33,9 +37,9 @@ class WeeklyForecastList extends StatelessWidget {
   Widget build(BuildContext context) {
     final DateTime currentDate = DateTime.now();
     final TextTheme textTheme = Theme.of(context).textTheme;
-    return ListView.builder(
-      itemCount: 7,
-      itemBuilder: (BuildContext context, int index) {
+    return SliverList(
+        delegate: SliverChildBuilderDelegate(
+      (BuildContext context, int index) {
         final DailyForecast dailyForecast = Server.getDailyForecastByID(index);
         return Card(
           child: Padding(
@@ -94,7 +98,8 @@ class WeeklyForecastList extends StatelessWidget {
           ),
         );
       },
-    );
+      childCount: 7,
+    ));
   }
 }
 
