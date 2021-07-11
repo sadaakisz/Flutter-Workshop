@@ -12,3 +12,17 @@ String stringify(int x, int y) {
 String? name = 'Jane';
 String? address;
 
+// Null-aware operators: https://dart.dev/codelabs/dart-cheatsheet#null-aware-operators
+// Example: https://dart.dev/codelabs/dart-cheatsheet#code-example-2
+
+String? foo = 'a string';
+String? bar; // = null
+
+// Substitute an operator that makes 'a string' be assigned to baz.
+String? baz = foo ?? bar;
+
+void updateSomeVars() {
+  // Substitute an operator that makes 'a string' be assigned to bar.
+  bar ??= 'a string';
+}
+
