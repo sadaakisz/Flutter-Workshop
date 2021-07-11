@@ -200,3 +200,17 @@ class MyClass {
   MyClass(this.anInt, this.aString, this.aDouble);
 }
 
+    // Initializer lists: https://dart.dev/codelabs/dart-cheatsheet#initializer-lists
+    // Example: https://dart.dev/codelabs/dart-cheatsheet#code-example-12
+
+class FirstTwoLetters {
+  final String letterOne;
+  final String letterTwo;
+
+  // Create a constructor with an initializer list here:
+  FirstTwoLetters(String word)
+      : letterOne = word[0],
+        letterTwo = word[1],
+        assert(word.length>=2) {
+  }
+}
