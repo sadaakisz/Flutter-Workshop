@@ -11,19 +11,24 @@ class FadeInDemo extends StatefulWidget {
 }
 
 class _FadeInDemoState extends State<FadeInDemo> {
+  double opacity = 0.0;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Image.network(owl_url),
         TextButton(
-          onPressed: () => null,
+          onPressed: () => setState(() {
+            opacity < 1 ? opacity = 1 : opacity = 0;
+          }),
           child: Text(
             'Show details',
             style: TextStyle(color: Colors.blueAccent),
           ),
         ),
-        Container(
+        AnimatedOpacity(
+          duration: Duration(seconds: 1),
+          opacity: opacity,
           child: Column(
             children: [
               Text('Type: Owl'),
@@ -45,13 +50,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Material App',
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('Material App Bar'),
-        ),
         body: Center(
-          child: Container(
-            child: Text('Hello World'),
-          ),
+          child: FadeInDemo(),
         ),
       ),
     );
