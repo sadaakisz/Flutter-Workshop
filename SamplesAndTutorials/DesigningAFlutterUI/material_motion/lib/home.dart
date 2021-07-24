@@ -392,30 +392,33 @@ class _AnimatedBottomAppBar extends StatelessWidget {
                           const _ReplyLogo(),
                           const SizedBox(width: 10),
                           // TODO: Add Fade through transition between disappearing mailbox title (Motion)
-                          onMailView
-                              ? const SizedBox(width: 48)
-                              : FadeTransition(
-                                  opacity: fadeOut,
-                                  child: Selector<EmailStore, String>(
-                                    selector: (context, emailStore) =>
-                                        emailStore.currentlySelectedInbox,
-                                    builder: (
-                                      context,
-                                      currentlySelectedInbox,
-                                      child,
-                                    ) {
-                                      return Text(
+                          _FadeThroughTransitionSwitcher(
+                            fillColor: Colors.transparent,
+                            child: onMailView
+                                ? const SizedBox(width: 48)
+                                : FadeTransition(
+                                    opacity: fadeOut,
+                                    child: Selector<EmailStore, String>(
+                                      selector: (context, emailStore) =>
+                                          emailStore.currentlySelectedInbox,
+                                      builder: (
+                                        context,
                                         currentlySelectedInbox,
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .bodyText1!
-                                            .copyWith(
-                                              color: ReplyColors.white50,
-                                            ),
-                                      );
-                                    },
+                                        child,
+                                      ) {
+                                        return Text(
+                                          currentlySelectedInbox,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyText1!
+                                              .copyWith(
+                                                color: ReplyColors.white50,
+                                              ),
+                                        );
+                                      },
+                                    ),
                                   ),
-                                ),
+                          ),
                         ],
                       ),
                     ),
