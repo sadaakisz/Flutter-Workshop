@@ -99,6 +99,16 @@ class _LoginPageState extends State<LoginPage> {
                       color: kShrineBrown900,
                     ),
                   ),
+                  style: ButtonStyle(
+                    foregroundColor: MaterialStateProperty.all(
+                      Theme.of(context).colorScheme.secondary,
+                    ),
+                    shape: MaterialStateProperty.all(
+                      BeveledRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(7.0)),
+                      ),
+                    ),
+                  ),
                   onPressed: () {
                     _usernameController.clear();
                     _passwordController.clear();
@@ -107,6 +117,7 @@ class _LoginPageState extends State<LoginPage> {
                 ElevatedButton(
                   child: Text('NEXT'),
                   style: ButtonStyle(
+                    elevation: MaterialStateProperty.all(8.0),
                     shape: MaterialStateProperty.all(
                       BeveledRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(7.0)),
